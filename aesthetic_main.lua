@@ -16,7 +16,7 @@ local Config = loadModule("aesthetic_config")
 local Utils = loadModule("aesthetic_utils")
 
 -- Modules (note: targetting with double-t as in your repo)
-local Targeting = loadModule("aesthetic_targetting")(Config, Utils)
+local Targeting = loadModule("aesthetic_targeting")(Config, Utils)
 local SilentAim = loadModule("aesthetic_silent_aim")(Config, Utils, Targeting)
 local Aimbot = loadModule("aesthetic_aimbot")(Config, Utils, Targeting)
 local ESP = loadModule("aesthetic_esp")(Config, Utils)
