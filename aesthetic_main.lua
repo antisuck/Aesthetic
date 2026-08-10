@@ -1,21 +1,28 @@
 --[[
     Aesthetic | Roblox Shooter Cheat
-    Loader — запускать этот файл последним
+    Loader — единая точка входа, тянет все модули с GitHub Raw
 
-    Все .lua файлы должны лежать в одной папке.
-    Если используешь URL — замени loadfile на loadstring(game:HttpGet("url"))
+    Использование: просто выполни этот один файл в executor'е
 ]]
 
--- Загрузка модулей
-local Config = loadstring("aesthetic_config.lua")()
-local Utils = loadstring("aesthetic_utils.lua")()
-local Targeting = loadstring("aesthetic_targeting.lua")(Config, Utils)
-local SilentAim = loadstring("aesthetic_silent_aim.lua")(Config, Utils, Targeting)
-local Aimbot = loadstring("aesthetic_aimbot.lua")(Config, Utils, Targeting)
-local ESP = loadstring("aesthetic_esp.lua")(Config, Utils)
-local Menu = loadstring("aesthetic_menu.lua")(Config, Utils, ESP)
+local BASE_URL = "https://raw.githubusercontent.com/antisuck/Aesthetic/main/"
 
--- Инициализация
+local function loadModule(name)
+    return loadstring(game:HttpGet(BASE_URL .. name .. ".lua"))()
+end
+
+-- Core
+local Config = loadModule("aesthetic_config")
+local Utils = loadModule("aesthetic_utils")
+
+-- Modules (note: targetting with double-t as in your repo)
+local Targeting = loadModule("aesthetic_targetting")(Config, Utils)
+local SilentAim = loadModule("aesthetic_silent_aim")(Config, Utils, Targeting)
+local Aimbot = loadModule("aesthetic_aimbot")(Config, Utils, Targeting)
+local ESP = loadModule("aesthetic_esp")(Config, Utils)
+local Menu = loadModule("aesthetic_menu")(Config, Utils, ESP)
+
+-- Init
 SilentAim.Init()
 Aimbot.Init()
 ESP.Init()
