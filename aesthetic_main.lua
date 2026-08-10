@@ -7,13 +7,13 @@
 ]]
 
 -- Загрузка модулей
-local Config = loadfile("aesthetic_config.lua")()
-local Utils = loadfile("aesthetic_utils.lua")()
-local Targeting = loadfile("aesthetic_targeting.lua")(Config, Utils)
-local SilentAim = loadfile("aesthetic_silent_aim.lua")(Config, Utils, Targeting)
-local Aimbot = loadfile("aesthetic_aimbot.lua")(Config, Utils, Targeting)
-local ESP = loadfile("aesthetic_esp.lua")(Config, Utils)
-local Menu = loadfile("aesthetic_menu.lua")(Config, Utils, ESP)
+local Config = loadstring("aesthetic_config.lua")()
+local Utils = loadstring("aesthetic_utils.lua")()
+local Targeting = loadstring("aesthetic_targeting.lua")(Config, Utils)
+local SilentAim = loadstring("aesthetic_silent_aim.lua")(Config, Utils, Targeting)
+local Aimbot = loadstring("aesthetic_aimbot.lua")(Config, Utils, Targeting)
+local ESP = loadstring("aesthetic_esp.lua")(Config, Utils)
+local Menu = loadstring("aesthetic_menu.lua")(Config, Utils, ESP)
 
 -- Инициализация
 SilentAim.Init()
