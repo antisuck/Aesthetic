@@ -13,8 +13,8 @@ return {
 
     Aimbot = {
         Enabled = false,
-        Smoothness = 0.15,
-        HitPart = "Head"
+        Smoothness = 0.15
+        -- HitPart removed, uses SilentAim.HitPart for both
     },
 
     ESP = {
